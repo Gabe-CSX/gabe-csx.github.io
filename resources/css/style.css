@@ -2,6 +2,7 @@
 html {
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 16px;
 }
 
 * {
@@ -20,7 +21,7 @@ html {
 .header h1 {
   float: left;
   margin-top: 5px;
-  color: #FFF;
+  color: #F2F2F2;
   font-size: 36px;
 }
 
@@ -31,7 +32,7 @@ html {
 .header li {
   display: inline-block;
   margin-right: 25px;
-  background-color: #FFF;  
+  background-color: #F2F2F2;  
   border-radius: 5px;
 }
 
@@ -39,22 +40,52 @@ html {
   display: inline-block;
   width: 150px;
   padding: 10px 0;
-  font-size: 24px;
   text-decoration: none;
   color: #BF311A;
 }
 
 .header a:hover {
   color: #992715;
-  background-color: #F2F2F2;
+  background-color: #E5E5E5;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .header h1 {
+    /*display: none;*/
+    font-size: 1.5em;
+  }
+  .header li {
+    margin-right: 10px;
+  }
+  .header a {
+    width: 100px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .header h1 {
+    display: none;
+  }
+  .header ul {
+    float: none;
+  }
+  .header a {
+    width: 75px;
+  }
+}
+
+@media only screen and (max-width: 402px) {
+  .header {
+    display: none;
+  }
 }
 
 /* Body style*/
 body { 
   place-items: center;
   height: 100vh;
-  background: #4F6D7A;
+  background: #F2F2F2;
 }
 
 .card {
@@ -66,11 +97,11 @@ body {
   height: 347px;
   padding: 1em;
   text-align: center;
+  font-size: 1.5em;
   background: #171614;
   border-radius: .8em;
   color: #858585;
   cursor: pointer;
-  overflow: hidden;
   overflow: hidden;
   z-index: 1;
 }
@@ -87,28 +118,30 @@ body {
   width: 255px;
   height: 355px;
   border-radius: 1em;
-  background: linear-gradient(50deg, #2A5A3B, #1E4886);
-  overflow: hidden;
+  background: linear-gradient(50deg, #cc0000, #919191);
+  overflow: hidden; /* Remove for positioning */
 }
 
 .container::before {
   content: '';
   position: absolute;
-  width: 450px;
-  height: 35px;
-  top: 0;
-  right: 35px;
+  width: 500px;
+  height: 100px;
+  top: -50px;
+  right: 100px;
   transition: 1.9s;
-  background: linear-gradient(50deg, #00FF59, #02B3FF);
-  transform: rotate(-45deg) translate(0, -100px);
+  background: linear-gradient(50deg, #ff0000, #f8f8f8);
+  transform: rotate(-45deg)
 }
 
 .container:hover::before {
-  animation: cardEffect 1.9s;
+  animation: cardBefore 5s;
+  /*animation-fill-mode: forwards === Stop on last frame */
+  animation-iteration-count: infinite;
 }
 
-@keyframes cardEffect {
+@keyframes cardBefore {
   100% {
-      transform: rotate(-45deg) translate(0, 450px);
+      transform: rotate(-45deg) translate(0, 550px);
   }
 }
