@@ -1,10 +1,18 @@
+/* Universal */
 html {
 	text-align: center;
-	font-family: Arial;
+	font-family: Arial, Helvetica, sans-serif !important;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header */
 .header {
-  height: 50px;
+  height: 75px;
   padding: 25px;
   background-color: #BF311A;
 }
@@ -40,4 +48,67 @@ html {
   color: #992715;
   background-color: #F2F2F2;
   border-radius: 5px;
+}
+
+/* Body */
+body { 
+  place-items: center;
+  height: 100vh;
+  background: #4F6D7A;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 247px;
+  height: 347px;
+  padding: 1em;
+  text-align: center;
+  background: #171614;
+  border-radius: .8em;
+  color: #858585;
+  cursor: pointer;
+  overflow: hidden;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card:hover {
+  color: #FFF;
+}
+
+.container {
+  margin: 50px auto;
+  display: grid;
+  place-items: center;
+  position: relative;
+  width: 255px;
+  height: 355px;
+  border-radius: 1em;
+  background: linear-gradient(50deg, #2A5A3B, #1E4886);
+  overflow: hidden;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  width: 450px;
+  height: 35px;
+  top: 0;
+  right: 35px;
+  transition: 1.9s;
+  background: linear-gradient(50deg, #00FF59, #02B3FF);
+  transform: rotate(-45deg) translate(0, -100px);
+}
+
+.container:hover::before {
+  animation: cardEffect 1.9s;
+}
+
+@keyframes cardEffect {
+  100% {
+      transform: rotate(-45deg) translate(0, 450px);
+  }
 }
