@@ -1,4 +1,4 @@
-/* Universal */
+/* Universal style*/ 
 html {
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif !important;
@@ -10,7 +10,7 @@ html {
   padding: 0;
 }
 
-/* Header */
+/* Header style*/
 .header {
   height: 75px;
   padding: 25px;
@@ -50,7 +50,7 @@ html {
   border-radius: 5px;
 }
 
-/* Body */
+/* Body style*/
 body { 
   place-items: center;
   height: 100vh;
