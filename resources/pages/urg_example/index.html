@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Gabe-CSX on github" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Risky Users</title>
+    <!-- Boxicons CSS -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+
+      html {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 18px;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      .user {
+        padding: 10px;
+      }
+
+      h2 {
+        color: rgb(13, 218, 207);
+        font-weight: bolder;
+      }
+
+      table {
+        margin: 0 auto;
+        width: 100%;
+        border-spacing: 0;
+      }
+
+      td {
+        padding: 10px;
+      }
+
+      th {
+        color: white;
+        background-color: rgb(13, 218, 207);
+        padding: 0.125em;
+      }
+
+      table th + th {
+        border-left: 1px solid white;
+      }
+
+      #postcontent {
+        padding: 10px;
+        list-style-type: circle;
+        list-style-position: inside;
+      }
+
+      #postcontent li {
+        padding: 2rem;
+      }
+
+      .nav {
+        position: fixed;
+        width: 100%;
+        box-shadow: 0 0 10px lightgray;
+        background-color: white;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .nav_list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+        margin: 0 10px;
+      }
+
+      .nav_listlogo {
+        list-style: none;
+        margin-right: auto;
+        margin-left: 0;
+        cursor: pointer;
+      }
+
+      .nav_listlogo i {
+        overflow: hidden;
+        transition: 0.5s ease-in-out;
+        color: white;
+        background-color: black;
+        padding: 0.5rem 2rem;
+        border-radius: 5px;
+        text-align: right;
+      }
+
+      .nav_listlogo i:hover {
+        background-color: rgb(13, 218, 207);
+      }
+
+      .nav_listitem {
+        list-style: none;
+        font-weight: bold;
+        position: relative;
+        padding: 1.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 200ms ease-in-out;
+      }
+
+      .nav_listitem::after {
+        content: "";
+        width: 0;
+        height: 0.3rem;
+        border-radius: 5px;
+        position: absolute;
+        left: 1rem;
+        bottom: 0.8rem;
+        background-color: rgb(13, 218, 207);
+        transform: width 200ms ease-in;
+      }
+
+      .nav_listitem:hover::after {
+        width: 80%;
+      }
+
+      .nav_listitem:hover .nav_listitemdrop {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav_listitemdrop {
+        position: absolute;
+        top: 4rem;
+        left: -1rem;
+        box-shadow: 0 0 10px lightgray;
+        background-color: white;
+        border-radius: 5px;
+        width: 12rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 200ms ease-in-out;
+      }
+
+      .nav_listitemdrop li {
+        list-style: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: background-color 200ms ease-in-out;
+      }
+
+      .nav_listitemdrop li:hover {
+        background-color: rgb(13, 218, 207);
+      }
+
+      .spacer {
+        height: 4rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <ul class="nav_list">
+        <li class="nav_listlogo">
+          <a href="https://github.com/gabe-CSX/"
+            ><i class="bx bxl-github"></i
+          ></a>
+        </li>
+        <li class="nav_listitem">
+          <i class="bx bx-user"></i>Users
+          <ul class="nav_listitemdrop">
+            <li><a href="Administrator">Administrator</a></li>
+            <li><a href="User B">User B</a></li>
+            <li><a href="User C">User C</a></li>
+            <li><a href="User F">User F</a></li>
+            <li><a href="User G">User G</a></li>
+            <li><a href="User H">User H</a></li>
+            <li><a href="User I">User I</a></li>
+            <li><a href="User J">User J</a></li>
+            <li><a href="User K">User K</a></li>
+            <li><a href="User L">User L</a></li>
+            <li><a href="User M">User M</a></li>
+            <li><a href="User O">User O</a></li>
+            <li><a href="User S">User S</a></li>
+            <li><a href="User T">User T</a></li>
+            <li><a href="User U">User U</a></li>
+            <li><a href="User W">User W</a></li>
+            <li><a href="User X">User X</a></li>
+            <li><a href="User Y">User Y</a></li>
+            <li><a href="User Z">User Z</a></li>
+          </ul>
+        </li>
+        <li class="nav_listitem"><a href="#postcontent">Diagnostics</a></li>
+      </ul>
+    </nav>
+    <div class="spacer">&nbsp;</div>
+    <div class="user" id="Administrator">
+      <h2>Administrator</h2>
+      <p>
+        Admin memberships: Administrators, Schema Admins, Enterprise Admins,
+        Domain Admins
+      </p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:06:56</td>
+          <td>True</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User B">
+      <h2>User B</h2>
+      <p>Admin memberships: Domain Admins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:25</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User C">
+      <h2>User C</h2>
+      <p>Admin memberships: Key Admins, DnsAdmins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:25</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User F">
+      <h2>User F</h2>
+      <p>Admin memberships: Schema Admins, Key Admins, DnsAdmins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:25</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User G">
+      <h2>User G</h2>
+      <p>Admin memberships: Schema Admins, Enterprise Admins, DnsAdmins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:25</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User H">
+      <h2>User H</h2>
+      <p>Admin memberships: Hyper-V Administrators</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User I">
+      <h2>User I</h2>
+      <p>Admin memberships: Storage Replica Administrators</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User J">
+      <h2>User J</h2>
+      <p>Admin memberships: Hyper-V Administrators, Domain Admins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User K">
+      <h2>User K</h2>
+      <p>
+        Admin memberships: Hyper-V Administrators, Schema Admins, Domain Admins
+      </p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User L">
+      <h2>User L</h2>
+      <p>Admin memberships: Schema Admins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User M">
+      <h2>User M</h2>
+      <p>Admin memberships: Hyper-V Administrators</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User O">
+      <h2>User O</h2>
+      <p>Admin memberships: Hyper-V Administrators</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User S">
+      <h2>User S</h2>
+      <p>Admin memberships: Hyper-V Administrators</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User T">
+      <h2>User T</h2>
+      <p>Admin memberships: Hyper-V Administrators, Key Admins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User U">
+      <h2>User U</h2>
+      <p>Admin memberships: Administrators, Domain Admins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User W">
+      <h2>User W</h2>
+      <p>Admin memberships: Schema Admins, DnsAdmins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:26</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User X">
+      <h2>User X</h2>
+      <p>Admin memberships: DnsAdmins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:27</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User Y">
+      <h2>User Y</h2>
+      <p>Admin memberships: Hyper-V Administrators, Schema Admins, DnsAdmins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:27</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <div class="user" id="User Z">
+      <h2>User Z</h2>
+      <p>Admin memberships: Schema Admins, Enterprise Admins</p>
+      <p>Account description:</p>
+      <br />
+      <table>
+        <tr>
+          <th>Password last set</th>
+          <th>Password never expires</th>
+          <th>Account enabled</th>
+          <th>Last failed logon time</th>
+          <th>Last failed logon type</th>
+        </tr>
+        <tr>
+          <td>02/04/2022 22:53:27</td>
+          <td>False</td>
+          <td>True</td>
+          <td>02/04/2022 19:18:22</td>
+          <td>Interactive</td>
+        </tr>
+      </table>
+    </div>
+    <table></table>
+    <hr />
+    <div id="postcontent">
+      <h2>Postcontent</h2>
+      <p>Powershell execution time in seconds: 10.55*</p>
+      <p>Errors:</p>
+      <ul>
+        <li>No errors in this session.</li>
+      </ul>
+      <p>
+        *this does not include creating a path, converting to html, and opening
+        the document.
+      </p>
+    </div>
+  </body>
+</html>
